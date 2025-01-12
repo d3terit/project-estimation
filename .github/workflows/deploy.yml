@@ -35,3 +35,6 @@ jobs:
           folder: dist  # Carpeta que contiene los archivos compilados
           branch: gh-pages  # Rama donde se desplegará
           clean: true  # Limpia la rama gh-pages antes de desplegar
+          clean-exclude: |
+            .nojekyll
+          force: true  # Esto forzará la actualización
