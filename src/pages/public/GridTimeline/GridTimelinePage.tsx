@@ -17,7 +17,7 @@ const GridTimelinePage = () => {
     // Cargar datos
     React.useEffect(() => {
         const loadActivities = async () => {
-            const response = await fetch('/data/activities.csv').then(res => res.text());
+            const response = await fetch(`${import.meta.env.BASE_URL}/data/activities.csv`).then(res => res.text());
             const lines = response.split('\n').slice(1);
             const uniqueCategories: string[] = []
             const parsed = lines.map((line: string) => {
