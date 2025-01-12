@@ -29,6 +29,12 @@ jobs:
         env:
           CI: false  # Para evitar que los warnings traten como errores
 
+      - name: Create .nojekyll
+        run: |
+          touch dist/.nojekyll
+          mkdir -p dist/data
+          cp -r public/data/* dist/data/
+      
       - name: Desplegar en GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
