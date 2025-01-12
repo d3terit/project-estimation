@@ -29,6 +29,6 @@ jobs:
       - name: Desplegar en GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build  # Carpeta que contiene los archivos compilados
+          folder: dist  # Carpeta que contiene los archivos compilados
           branch: gh-pages  # Rama donde se desplegará
           clean: true  # Limpia la rama gh-pages antes de desplegar
