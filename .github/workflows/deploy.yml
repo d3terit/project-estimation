@@ -1,0 +1,34 @@
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.14.0'
+
+      - name: Instalar dependencias
+        run: npm ci  # Más rápido y seguro que npm install
+
+      - name: Construir aplicación
+        run: npm run build
+        env:
+          CI: false  # Para evitar que los warnings traten como errores
+
+      - name: Desplegar en GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build  # Carpeta que contiene los archivos compilados
+          branch: gh-pages  # Rama donde se desplegará
+          clean: true  # Limpia la rama gh-pages antes de desplegar
