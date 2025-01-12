@@ -101,7 +101,7 @@ const GridTimelinePage = () => {
         <div className="p-6 max-w-full bg-gray-50 min-h-screen">
             {/* Header y Filtros */}
             <div className="mb-8 space-y-4">
-                <h1 className="text-2xl font-bold text-center mb-6">Mapa de Actividades | Extra Recepcionista</h1>
+                <h1 className="text-2xl font-bold text-center mb-6">Mapa de Actividades | Extra - Recepcionista</h1>
 
                 <div className="flex flex-wrap gap-4 justify-between">
                     {/* Buscador */}
