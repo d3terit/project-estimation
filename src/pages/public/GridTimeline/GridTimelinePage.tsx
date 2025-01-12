@@ -95,16 +95,16 @@ const GridTimelinePage = () => {
     }, [filteredActivities]);
 
     return (
-        <div className="p-2 md:p-6 max-w-full bg-gray-50 min-h-screen">
+        <div className="p-2 lg:p-6 max-w-full bg-gray-50 min-h-screen">
             {/* Header y Filtros - Responsive */}
-            <div className="mb-4 md:mb-8 space-y-4">
-                <h1 className="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6">
+            <div className="mb-4 lg:mb-8 space-y-4">
+                <h1 className="text-xl lg:text-2xl font-bold text-center mb-4 lg:mb-6">
                     Mapa de Actividades | Extra - Recepcionista
                 </h1>
 
-                <div className="flex flex-col md:flex-row gap-4 justify-between">
+                <div className="flex flex-col lg:flex-row gap-4 justify-between">
                     {/* Buscador */}
-                    <div className="relative flex-grow max-w-full md:max-w-md">
+                    <div className="relative flex-grow max-w-full lg:max-w-md">
                         <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
                         <input
                             type="text"
@@ -118,7 +118,7 @@ const GridTimelinePage = () => {
                     {/* Botón de filtros */}
                     <button
                         onClick={() => setShowFilters(!showFilters)}
-                        className="flex items-center justify-center gap-2 px-4 py-2 bg-white rounded-lg border hover:bg-gray-50 w-full md:w-auto"
+                        className="flex items-center justify-center gap-2 px-4 py-2 bg-white rounded-lg border hover:bg-gray-50 w-full lg:w-auto"
                     >
                         <Filter className="h-5 w-5" />
                         <span>Filtros</span>
@@ -128,7 +128,7 @@ const GridTimelinePage = () => {
 
                 {/* Panel de filtros expandible - Responsive */}
                 {showFilters && (
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-white rounded-lg shadow-sm">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-4 bg-white rounded-lg shadow-sm">
                         {/* Filtros de tecnología */}
                         <div className="space-y-2">
                             <h3 className="font-medium mb-2">Tecnologías</h3>
@@ -193,26 +193,26 @@ const GridTimelinePage = () => {
                 </div>
 
                 {/* Estadísticas - Grid responsive */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
-                    <div className="bg-white p-3 md:p-4 rounded-lg shadow-sm">
-                        <h3 className="text-xs md:text-sm font-medium text-gray-500">Total Actividades</h3>
-                        <p className="text-xl md:text-2xl font-bold">{filteredActivities.length}</p>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4">
+                    <div className="bg-white p-3 lg:p-4 rounded-lg shadow-sm">
+                        <h3 className="text-xs lg:text-sm font-medium text-gray-500">Total Actividades</h3>
+                        <p className="text-xl lg:text-2xl font-bold">{filteredActivities.length}</p>
                     </div>
-                    <div className="bg-white p-3 md:p-4 rounded-lg shadow-sm">
-                        <h3 className="text-xs md:text-sm font-medium text-gray-500">Complejidad Alta</h3>
-                        <p className="text-xl md:text-2xl font-bold text-red-600">
+                    <div className="bg-white p-3 lg:p-4 rounded-lg shadow-sm">
+                        <h3 className="text-xs lg:text-sm font-medium text-gray-500">Complejidad Alta</h3>
+                        <p className="text-xl lg:text-2xl font-bold text-red-600">
                             {filteredActivities.filter(a => a.complexity === 3).length}
                         </p>
                     </div>
-                    <div className="bg-white p-3 md:p-4 rounded-lg shadow-sm">
-                        <h3 className="text-xs md:text-sm font-medium text-gray-500">Tecnologías Únicas</h3>
-                        <p className="text-xl md:text-2xl font-bold text-blue-600">
+                    <div className="bg-white p-3 lg:p-4 rounded-lg shadow-sm">
+                        <h3 className="text-xs lg:text-sm font-medium text-gray-500">Tecnologías Únicas</h3>
+                        <p className="text-xl lg:text-2xl font-bold text-blue-600">
                             {new Set(filteredActivities.flatMap(a => a.technologies)).size}
                         </p>
                     </div>
-                    <div className="bg-white p-3 md:p-4 rounded-lg shadow-sm">
-                        <h3 className="text-xs md:text-sm font-medium text-gray-500">Versión más reciente</h3>
-                        <p className="text-xl md:text-2xl font-bold text-green-600">
+                    <div className="bg-white p-3 lg:p-4 rounded-lg shadow-sm">
+                        <h3 className="text-xs lg:text-sm font-medium text-gray-500">Versión más reciente</h3>
+                        <p className="text-xl lg:text-2xl font-bold text-green-600">
                             {Math.max(...filteredActivities.map(a => parseInt(a.version)))}
                         </p>
                     </div>
@@ -220,40 +220,40 @@ const GridTimelinePage = () => {
             </div>
 
             {/* Grid por versión - Responsive */}
-            <div className="space-y-8 md:space-y-12">
+            <div className="space-y-8 lg:space-y-12">
                 {['1', '2', '3', '4'].map(version => {
                     const hasActivities = Object.values(organizedActivities[version]).some((arr:any) => arr.length > 0);
                     if (!hasActivities) return null;
 
                     return (
                         <div key={version} className="relative">
-                            <h2 className="text-lg md:text-xl font-semibold mb-4 md:mb-6 border-b pb-2">
+                            <h2 className="text-lg lg:text-xl font-semibold mb-4 lg:mb-6 border-b pb-2">
                                 Versión {version}
                             </h2>
                             
                             {/* Grid responsive con scroll horizontal en móvil */}
                             <div className="overflow-x-auto">
-                                <div className="grid grid-cols-5 gap-2 md:gap-4 min-w-max">
+                                <div className="grid grid-cols-5 gap-2 lg:gap-4 min-w-max lg:min-w-0">
                                     {Object.entries(CATEGORIES.operational).map(([category, _]) => (
-                                        <div key={category} className="w-64 md:w-auto space-y-4 border-r pr-2 md:pr-4 last:border-r-0 last:pr-0">
-                                            <h3 className="text-xs md:text-sm font-medium text-gray-600 text-center">
+                                        <div key={category} className="w-64 lg:w-auto space-y-4 border-r pr-2 lg:pr-4 last:border-r-0 last:pr-0">
+                                            <h3 className="text-xs lg:text-sm font-medium text-gray-600 text-center">
                                                 {category}
                                             </h3>
-                                            <div className="space-y-2 md:space-y-4">
+                                            <div className="space-y-2 lg:space-y-4">
                                                 {organizedActivities[version][category].map((activity:Activity) => (
                                                     <div
                                                         key={activity.id}
                                                         className={`${activity.backgroundColor}
-                                                            p-3 md:p-4 rounded-lg cursor-pointer
+                                                            p-3 lg:p-4 rounded-lg cursor-pointer
                                                             transition-all duration-200 hover:scale-105
                                                             ${activity.spanMultipleVersions ? 'row-span-2' : ''}`}
                                                         onClick={() => setSelectedActivity(activity)}
                                                     >
                                                         <div className="flex flex-col h-full">
-                                                            <h4 className="text-sm md:text-base font-medium mb-2">
+                                                            <h4 className="text-sm lg:text-base font-medium mb-2">
                                                                 {activity.name}
                                                             </h4>
-                                                            <p className="text-xs md:text-sm text-gray-600 mb-3 line-clamp-2">
+                                                            <p className="text-xs lg:text-sm text-gray-600 mb-3 line-clamp-2">
                                                                 {activity.description}
                                                             </p>
                                                             
