@@ -1,8 +1,6 @@
-import { COLOR_SCHEME } from "../../core/constants";
-
 export interface Activity {
     id: string;
-    mainCategory: keyof typeof COLOR_SCHEME;
+    mainCategory: string;
     spanMultipleVersions: boolean;
     name: string;
     description: string;

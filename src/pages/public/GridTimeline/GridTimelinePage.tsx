@@ -76,7 +76,7 @@ const GridTimelinePage = () => {
 
     // Organizar actividades por versión y categoría de servicio
     const organizedActivities = useMemo(() => {
-        const organized = {};
+        const organized: any = {};
         ['1', '2', '3', '4'].forEach(version => {
             organized[version] = {};
             Object.keys(CATEGORIES.operational).forEach(category => {
@@ -222,7 +222,7 @@ const GridTimelinePage = () => {
             {/* Grid por versión */}
             <div className="space-y-12">
                 {['1', '2', '3', '4'].map(version => {
-                    const hasActivities = Object.values(organizedActivities[version]).some(arr => arr.length > 0);
+                    const hasActivities = Object.values(organizedActivities[version]).some((arr:any) => arr.length > 0);
                     if (!hasActivities) return null;
 
                     return (

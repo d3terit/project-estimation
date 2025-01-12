@@ -32,11 +32,11 @@ const DetailModal = ({
                                 {selectedActivity.category}
                             </span>
                             <span className={`px-2 py-1 rounded-full text-sm ${
-                                selectedActivity.complexity === 'alta' ? 'bg-red-100 text-red-800' :
-                                selectedActivity.complexity === 'media' ? 'bg-yellow-100 text-yellow-800' :
+                                selectedActivity.complexity === 3 ? 'bg-red-100 text-red-800' :
+                                selectedActivity.complexity === 2 ? 'bg-yellow-100 text-yellow-800' :
                                 'bg-green-100 text-green-800'
                             }`}>
-                                Complejidad {selectedActivity.complexity}
+                                Complejidad {selectedActivity.textComplexity}
                             </span>
                         </div>
                     </div>
