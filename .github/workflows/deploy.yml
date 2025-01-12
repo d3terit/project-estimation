@@ -19,7 +19,7 @@ jobs:
           node-version: '20.14.0'
 
       - name: Instalar dependencias
-        run: npm ci  # Más rápido y seguro que npm install
+        run: pnpm install
 
       - name: Construir aplicación
         run: npm run build
