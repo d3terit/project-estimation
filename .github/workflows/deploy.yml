@@ -19,7 +19,7 @@ jobs:
           node-version: '20.14.0'
 
       - name: Instalar dependencias
-        run: pnpm install
+        run: npm i
 
       - name: Construir aplicación
         run: npm run build
